@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "radxa,zero", "amlogic,g12a";
+
+        fragment@0 {
+                target-path = "/";
+                __overlay__ {
+                       backlight: backlight {
+                               compatible = "pwm-backlight";
+                               pwms = <&pwm_AO_ab 0 1000000 0>;
+                               brightness-levels = <0 255>;
+                               num-interpolated-steps = <255>;
+                               default-brightness-level = <255>;
+                               status = "okay";
+                       };
+               };
+       };
+};
